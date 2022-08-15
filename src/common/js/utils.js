@@ -1,29 +1,20 @@
-/**
- * 严肃声明：
- * 开源版本请务必保留此注释头信息，若删除我方将保留所有法律责任追究！
- * 本系统已申请软件著作权，受国家版权局知识产权以及国家计算机软件著作权保护！
- * 可正常分享和学习源码，不得用于违法犯罪活动，违者必究！
- * Copyright (c) 2020 陈尼克 all rights reserved.
- * 版权所有，侵权必究！
- */
-
 export function getQueryString(name) {
-  var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
   var r = window.location.search.substr(1).match(reg);
-  if(r != null) {
-      return  unescape(r[2]);
+  if (r != null) {
+    return unescape(r[2]);
   } else {
-      return null
+    return null;
   }
 }
 
 export const getLocal = (name) => {
-  return localStorage.getItem(name)
-}
+  return localStorage.getItem(name);
+};
 
 export const setLocal = (name, value) => {
-  localStorage.setItem(name, value)
-}
+  localStorage.setItem(name, value);
+};
 
 export const tdist = {
   210184: ["沈北新区", "210100"],
@@ -4223,52 +4214,52 @@ export const tdist = {
   621122: ["陇西县", "621100"],
   621121: ["通渭县", "621100"],
   621100: ["定西市", "620000"],
-  621102: ["安定区", "621100"]
-}
+  621102: ["安定区", "621100"],
+};
 
-tdist.getLev1 = function() {
+tdist.getLev1 = function () {
   for (var t = [], e = 1; e < 100; e++) {
-      var i = "0000";
-      i = e < 10 ? "0" + e + i : e + i;
-      var n = this[i];
-      "undefined" != typeof n && t.push({
-          id: i,
-          text: n[0]
-      })
+    var i = "0000";
+    i = e < 10 ? "0" + e + i : e + i;
+    var n = this[i];
+    "undefined" != typeof n &&
+      t.push({
+        id: i,
+        text: n[0],
+      });
   }
-  return t
-}
+  return t;
+};
 
-tdist.getLev2 = function(t) {
-  if ("" == t)
-      return [];
+tdist.getLev2 = function (t) {
+  if ("" == t) return [];
   for (var e = [], i = 1; i < 100; i++) {
-      var n = t.substr(0, 2);
-      n += i < 10 ? "0" + i + "00" : i + "00";
-      var r = this[n];
-      "undefined" != typeof r && e.push({
-          id: n,
-          text: r[0]
-      })
+    var n = t.substr(0, 2);
+    n += i < 10 ? "0" + i + "00" : i + "00";
+    var r = this[n];
+    "undefined" != typeof r &&
+      e.push({
+        id: n,
+        text: r[0],
+      });
   }
-  return e
-}
+  return e;
+};
 
-tdist.getLev3 = function(t) {
-  if ("" == t)
-      return [];
+tdist.getLev3 = function (t) {
+  if ("" == t) return [];
   for (var e = [], i = 1; i < 100; i++) {
-      var n = t.substr(0, 4);
-      n += i < 10 ? "0" + i : i;
-      var r = this[n];
-      "undefined" != typeof r && e.push({
-          id: n,
-          text: r[0]
-      })
+    var n = t.substr(0, 4);
+    n += i < 10 ? "0" + i : i;
+    var r = this[n];
+    "undefined" != typeof r &&
+      e.push({
+        id: n,
+        text: r[0],
+      });
   }
-  return e
-}
-
+  return e;
+};
 
 // tdist.getParent = function(t) {
 //   var e = this[t][1];
@@ -4305,10 +4296,10 @@ tdist.getLev3 = function(t) {
 
 // 图片前缀方法
 export const prefix = (url) => {
-  if (url && url.startsWith('http')) {
-    return url
+  if (url && url.startsWith("http")) {
+    return url;
   } else {
-    url = `http://backend-api-01.newbee.ltd${url}`
-    return url
+    url = `http://backend-api-01.newbee.ltd${url}`;
+    return url;
   }
-}
+};
