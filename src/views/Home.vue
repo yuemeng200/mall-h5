@@ -5,13 +5,13 @@
         ><i class="nbicon nbmenu2"></i
       ></router-link>
       <div class="header-search">
-        <span class="app-name">新蜂商城</span>
+        <span class="app-name">MALL</span>
         <i class="iconfont icon-search"></i>
         <router-link
           tag="span"
           class="search-title"
           to="./product-list?from=home"
-          >山河无恙，人间皆安</router-link
+          >GET WHAT YOU WANT !</router-link
         >
       </div>
       <router-link class="login" tag="span" to="./login" v-if="!isLogin"
