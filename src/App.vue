@@ -1,7 +1,10 @@
+<!-- INFO 总路由，用来设置过度动画 -->
 <template>
   <div id="app">
+    <!-- INFO router-view 默认无法暴露内部显示的组件 -->
     <router-view class="router-view" v-slot="{ Component }">
       <transition :name="transitionName">
+        <!-- NOTE 这里没有使用keep-alive 是因为对大的路由分的太细，可能有些组件不应该缓存 -->
         <component :is="Component" />
       </transition>
     </router-view>

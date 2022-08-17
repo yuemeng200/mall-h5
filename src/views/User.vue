@@ -8,7 +8,7 @@
           <div class="user-desc">
             <span>昵称：{{ user.nickName }}</span>
             <span>登录名：{{ user.loginName }}</span>
-            <span class="name">个性签名：{{ user.introduceSign }}</span>
+            <!-- <span class="name">个性签名：{{ user.introduceSign }}</span> -->
           </div>
         </div>
       </div>
@@ -29,12 +29,8 @@
         <span>地址管理</span>
         <van-icon name="arrow" />
       </li>
-      <li @click="goTo('/about')">
-        <span>关于我们</span>
-        <van-icon name="arrow" />
-      </li>
     </ul>
-    <nav-bar></nav-bar>
+  <nav-bar></nav-bar>
   </div>
 </template>
 

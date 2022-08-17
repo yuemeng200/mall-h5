@@ -3,7 +3,7 @@ import { ActionBar, ActionBarIcon, ActionBarButton, Divider, Popup, Overlay, Loa
 import App from './App.vue'
 import store from './store'
 import router from './router'
-import 'lib-flexible/flexible'
+import 'lib-flexible/flexible'  // 引入rem适配插件
 import 'vant/lib/index.css'; // 全局引入样式
 
 const app = createApp(App) // 创建实例

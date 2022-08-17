@@ -33,10 +33,12 @@ export default {
     onMounted(() => {
       const token = getLocal("token");
       const path = route.path;
+      // INFO 登录且有必要去获取下购物车数量
       if (token && !["/home", "/category"].includes(path)) {
         store.dispatch("updateCart");
       }
     });
+    // NOTE 这里我感觉没必要，因为这个navbar组件太容易切换
     const count = computed(() => {
       return store.state.cartCount;
     });
@@ -54,17 +56,12 @@ export default {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 100%;  // INFO 定位元素必须设置width
   padding: 5px 0;
   z-index: 1000;
   background: #fff;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
   .nav-list {
-    width: 100%;
     .fj();
-    flex-direction: row;
-    padding: 0;
     .nav-list-item {
       display: flex;
       flex: 1;

@@ -1,125 +1,143 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
   routes: [
     {
-      path: '/',
-      redirect: '/home'
+      path: "/",
+      redirect: "/home",
     },
     {
-      path: '/home',
-      name: 'home',
-      component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+      path: "/home",
+      name: "home",
+      component: () =>
+        import(/* webpackChunkName: "home" */ "@/views/Home.vue"),
       meta: {
-        index: 1
-      }
+        index: 1,
+      },
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import(/* webpackChunkName: "login" */ '@/views/Login.vue'),
+      path: "/login",
+      name: "login",
+      component: () =>
+        import(/* webpackChunkName: "login" */ "@/views/Login.vue"),
       meta: {
-        index: 1
-      }
+        index: 1,
+      },
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue'),
+      path: "/category",
+      name: "category",
+      component: () =>
+        import(/* webpackChunkName: "category" */ "@/views/Category.vue"),
       meta: {
-        index: 2
-      }
+        index: 1,
+      },
     },
     {
-      path: '/category',
-      name: 'category',
-      component: () => import(/* webpackChunkName: "category" */ '@/views/Category.vue'),
+      path: "/product-list",
+      name: "product-list",
+      component: () =>
+        import(
+          /* webpackChunkName: "product-list" */ "@/views/ProductList.vue"
+        ),
       meta: {
-        index: 1
-      }
+        index: 2,
+      },
     },
     {
-      path: '/product-list',
-      name: 'product-list',
-      component: () => import(/* webpackChunkName: "product-list" */ '@/views/ProductList.vue'),
+      path: "/product/:id",
+      name: "product",
+      component: () =>
+        import(/* webpackChunkName: "product" */ "@/views/ProductDetail.vue"),
       meta: {
-        index: 2
-      }
+        index: 3,
+      },
     },
     {
-      path: '/product/:id',
-      name: 'product',
-      component: () => import(/* webpackChunkName: "product" */ '@/views/ProductDetail.vue'),
+      path: "/cart",
+      name: "cart",
+      component: () =>
+        import(/* webpackChunkName: "cart" */ "@/views/Cart.vue"),
       meta: {
-        index: 3
-      }
+        index: 1,
+      },
     },
     {
-      path: '/cart',
-      name: 'cart',
-      component: () => import(/* webpackChunkName: "cart" */ '@/views/Cart.vue'),
+      path: "/create-order",
+      name: "create-order",
+      component: () =>
+        import(
+          /* webpackChunkName: "create-order" */ "@/views/CreateOrder.vue"
+        ),
       meta: {
-        index: 1
-      }
+        index: 2,
+      },
     },
     {
-      path: '/create-order',
-      name: 'create-order',
-      component: () => import(/* webpackChunkName: "create-order" */ '@/views/CreateOrder.vue'),
+      path: "/order",
+      name: "order",
+      component: () =>
+        import(/* webpackChunkName: "order" */ "@/views/Order.vue"),
       meta: {
-        index: 2
-      }
+        index: 2,
+      },
     },
     {
-      path: '/order',
-      name: 'order',
-      component: () => import(/* webpackChunkName: "order" */ '@/views/Order.vue'),
+      path: "/order-detail",
+      name: "order-detail",
+      component: () =>
+        import(
+          /* webpackChunkName: "order-detail" */ "@/views/OrderDetail.vue"
+        ),
       meta: {
-        index: 2
-      }
+        index: 3,
+      },
     },
     {
-      path: '/order-detail',
-      name: 'order-detail',
-      component: () => import(/* webpackChunkName: "order-detail" */ '@/views/OrderDetail.vue'),
+      path: "/user",
+      name: "user",
+      component: () =>
+        import(/* webpackChunkName: "user" */ "@/views/User.vue"),
       meta: {
-        index: 3
-      }
+        index: 1,
+      },
     },
     {
-      path: '/user',
-      name: 'user',
-      component: () => import(/* webpackChunkName: "user" */ '@/views/User.vue'),
+      path: "/setting",
+      name: "setting",
+      component: () =>
+        import(/* webpackChunkName: "setting" */ "@/views/Setting.vue"),
       meta: {
-        index: 1
-      }
+        index: 2,
+      },
     },
     {
-      path: '/setting',
-      name: 'setting',
-      component: () => import(/* webpackChunkName: "setting" */ '@/views/Setting.vue'),
+      path: "/address",
+      name: "address",
+      component: () =>
+        import(/* webpackChunkName: "address" */ "@/views/Address.vue"),
       meta: {
-        index: 2
-      }
+        index: 2,
+      },
     },
     {
-      path: '/address',
-      name: 'address',
-      component: () => import(/* webpackChunkName: "address" */ '@/views/Address.vue'),
+      path: "/address-edit",
+      name: "address-edit",
+      component: () =>
+        import(
+          /* webpackChunkName: "address-edit" */ "@/views/AddressEdit.vue"
+        ),
       meta: {
-        index: 2
-      }
+        index: 3,
+      },
     },
+    // 404页面
     {
-      path: '/address-edit',
-      name: 'address-edit',
-      component: () => import(/* webpackChunkName: "address-edit" */ '@/views/AddressEdit.vue'),
-      meta: {
-        index: 3
-      }
-    },
-  ]
-})
+      path: '/:any',
+      redirect: '/home',
+    }
+  ],
+});
 
-export default router
+export default router;

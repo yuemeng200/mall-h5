@@ -19,16 +19,17 @@ axios.interceptors.response.use((res) => {
   }
   if (res.data.resultCode != 200) {
     if (res.data.message) Toast.fail(res.data.message);
+    // NOTE 目前没有做路由拦截，未登录跳转就靠这个
     if (res.data.resultCode == 416) {
       router.push({ path: "/login" });
     }
+    // 初次登录
     if (res.data.data && window.location.hash == "#/login") {
       setLocal("token", res.data.data);
       axios.defaults.headers["token"] = res.data.data;
     }
     return Promise.reject(res.data);
   }
-
   return res.data;
 });
 
