@@ -1,3 +1,5 @@
+<!-- Better-scroll 在滚动场景用途十分广泛，这里几乎没用到 -->
+
 <template>
   <div ref="wrapper" class="scroll-wrapper">
     <slot></slot>
@@ -73,12 +75,6 @@ export default {
       this.bs = new BScroll(this.$refs.wrapper, {
         probeType: 3,
         click: true,
-      });
-      this.bs.on("scroll", () => {
-        console.log("scrolling-");
-      });
-      this.bs.on("scrollEnd", () => {
-        console.log("scrollingEnd");
       });
     },
   },

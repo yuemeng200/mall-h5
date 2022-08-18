@@ -9,7 +9,7 @@
             tag="span"
             class="search-title"
             to="./product-list?from=category"
-            >全场50元起步</router-link
+            >619全场五折！</router-link
           >
         </div>
         <i class="iconfont icon-More"></i>

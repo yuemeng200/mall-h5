@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Toast } from "vant";
-import { setLocal } from "@/common/js/utils";
 import router from "../router";
 
 axios.defaults.baseURL =
@@ -22,11 +21,6 @@ axios.interceptors.response.use((res) => {
     // NOTE 目前没有做路由拦截，未登录跳转就靠这个
     if (res.data.resultCode == 416) {
       router.push({ path: "/login" });
-    }
-    // 初次登录
-    if (res.data.data && window.location.hash == "#/login") {
-      setLocal("token", res.data.data);
-      axios.defaults.headers["token"] = res.data.data;
     }
     return Promise.reject(res.data);
   }

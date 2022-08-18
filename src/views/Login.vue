@@ -113,7 +113,7 @@ export default {
 
     // 提交登录或注册表单
     const onSubmit = async (values) => {
-      console.log("verifyRef.value.imgCode", verifyRef.value.imgCode);
+      // NOTE 除此之外还有更好的方法去拿这个ref吗
       state.imgCode = verifyRef.value.imgCode || "";
       if (state.verify.toLowerCase() != state.imgCode.toLowerCase()) {
         Toast.fail("验证码有误");
@@ -122,10 +122,11 @@ export default {
       if (state.type == "login") {
         const { data } = await login({
           loginName: values.username,
+          // NOTE md5 不需要做任何配置吗
           passwordMd5: md5(values.password),
         });
         setLocal("token", data);
-        // 需要刷新页面，否则 axios.js 文件里的 token 不会被重置
+        // NOTE 需要刷新页面，否则 axios.js 文件里的 token 不会被重置
         window.location.href = "/";
       } else {
         await register({

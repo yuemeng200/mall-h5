@@ -1,3 +1,4 @@
+<!-- 这个验证码组件是通过canvas自己实现的 -->
 <template>
   <div class="img-verify">
     <canvas ref="verify" :width="width" :height="height" @click="handleDraw"></canvas>
